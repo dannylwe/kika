@@ -25,4 +25,13 @@ model User {
   phoneNumber  String?
   isActive Boolean? @default(true)
   hasBankAccount Boolean? @default(false)
+  questionnaires Questionnaire[]
+}
+
+model Questionnaire {
+  id    Int     @default(autoincrement()) @id
+  questions Json
+  answers Json?
+  answeredBy User @relation(fields: [answeredById], references: [id])
+  answeredById Int
 }
