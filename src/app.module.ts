@@ -8,17 +8,31 @@ import { QuestionnaireModule } from './questionnaire/questionnaire.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+const defaultOptions = {
+  port: parseInt(process.env.DB_PORT),
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME_DEVELOPMENT,
+  host: process.env.DB_HOST,
+};
+
+console.log(defaultOptions, 'PPPP');
+
 @Module({
-  imports: [SequelizeModule.forRoot({
-    dialect: 'postgres',
-    host: 'localhost',
-    port: 54320,
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME_DEVELOPMENT,
-    autoLoadModels: true,
-    synchronize: true
-  }), ConfigModule.forRoot({ isGlobal: true }), UserModule, QuestionnaireModule],
+  imports: [
+    SequelizeModule.forRoot({
+      dialect: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
+      autoLoadModels: true,
+      synchronize: true,
+    }),
+    UserModule,
+    QuestionnaireModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

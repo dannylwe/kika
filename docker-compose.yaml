@@ -7,11 +7,11 @@ services:
     network_mode: bridge
     restart: always
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASS}
-      POSTGRES_DB: ${DB_NAME_DEVELOPMENT}
+      # POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      # POSTGRES_DB: dev
     ports:
-      - 54320:5432
+      - 5432:5432
     # volumes: 
       # - ./postgresdata:/var/lib/postgresql/data
       # - ./database/database.sql:/docker-entrypoint-initdb.d/1-dbinit.sql
