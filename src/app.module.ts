@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { UserModule } from './user/user.module';
+import { UserModule } from './user/user.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -16,7 +18,7 @@ dotenv.config();
     database: process.env.DB_NAME_DEVELOPMENT,
     autoLoadModels: true,
     synchronize: true
-  }), ConfigModule.forRoot({ isGlobal: true })],
+  }), ConfigModule.forRoot({ isGlobal: true }), UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
