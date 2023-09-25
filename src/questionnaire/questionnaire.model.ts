@@ -16,10 +16,10 @@ export class Questionnaire extends Model {
   @Column({ type: DataType.JSONB, defaultValue: null })
   answers: any;
 
-//   @BelongsTo(() => User)
-//   answeredBy: User;
+  //   @BelongsTo(() => User)
+  //   answeredBy: User;
 
-//   @Column({ type: DataType.INTEGER, defaultValue: null })
-//   @ForeignKey(() => User)
-//   answerdById: number;
+  //   @Column({ type: DataType.INTEGER, defaultValue: null })
+  //   @ForeignKey(() => User)
+  //   answerdById: number;
 }
