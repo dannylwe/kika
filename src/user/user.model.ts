@@ -43,5 +43,5 @@ export class User extends Model {
   hasBankAccount: boolean;
 
   @HasMany(() => Questionnaire)
-  treeSpecies: Questionnaire[];
+  questionnaire: Questionnaire[];
 }

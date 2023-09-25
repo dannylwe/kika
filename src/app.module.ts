@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UserModule } from './user/user.module';
 import { QuestionnaireModule } from './questionnaire/questionnaire.module';
+import { PrismaModule } from './prisma/prisma.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -20,18 +21,19 @@ console.log(defaultOptions, 'PPPP');
 
 @Module({
   imports: [
-    SequelizeModule.forRoot({
-      dialect: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
-      autoLoadModels: true,
-      synchronize: true,
-    }),
+    // SequelizeModule.forRoot({
+    //   dialect: 'postgres',
+    //   host: 'localhost',
+    //   port: 5432,
+    //   username: 'postgres',
+    //   password: 'postgres',
+    //   database: 'postgres',
+    //   autoLoadModels: true,
+    //   synchronize: true,
+    // }),
     UserModule,
     QuestionnaireModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
