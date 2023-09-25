@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "models:dev": "node_modules/.bin/sequelize-auto -h localhost -d postgres -u user -p 54320 -x password -e postgres -o \"./src/database/models\" ",
     "restart": "docker-compose down; docker-compose up -d; sleep 2; npm run start:dev",
+    "update": "ncu -u -f /^@nestjs/",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
