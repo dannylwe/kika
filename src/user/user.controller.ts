@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -21,9 +22,23 @@ export class UserController {
   }
 
   @Get()
-  findAll() {
-    return this.userService.findAll();
+  findAll(@Req() request) {
+    const where = request.query
+    const page = +request.query.page < 0 ? 1: +request.query.page
+    const orderBy = request.query.orderBy
+    const params = {
+      where, page, orderBy
+    }
+    return this.userService.findAll(params);
   }
+
+  // @Get()
+  // findAll(@Req() request) {
+  //   // const { where, orderBy, page } = request.params;
+  //   // const params = {where, orderBy, page}
+
+  //   return this.userService.findAll(request);
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
