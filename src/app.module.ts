@@ -17,7 +17,7 @@ const defaultOptions = {
   host: process.env.DB_HOST,
 };
 
-console.log(defaultOptions, 'PPPP');
+// console.log(defaultOptions, 'PPPP');
 
 @Module({
   imports: [

@@ -12,7 +12,7 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -26,6 +26,10 @@ export class UserController {
     const where = request.query
     const page = +request.query.page < 0 ? 1: +request.query.page
     const orderBy = request.query.orderBy
+
+    delete where.page
+    delete where.orderBy
+    
     const params = {
       where, page, orderBy
     }

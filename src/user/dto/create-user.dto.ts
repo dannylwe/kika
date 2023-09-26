@@ -1,9 +1,9 @@
 import { IsBoolean, IsEnum, IsOptional, IsString } from 'class-validator';
 
 export enum ROLE {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-  AUDITOR = 'AUDITOR',
+  USER,
+  ADMIN,
+  AUDITOR,
 }
 
 export class CreateUserDto {
@@ -24,6 +24,10 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   parish: string;
+
+  @IsOptional()
+  @IsString()
+  gender: string
 
   @IsString()
   @IsOptional()
@@ -68,5 +72,5 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   @IsEnum(ROLE)
-  role: string;
+  role: any;
 }

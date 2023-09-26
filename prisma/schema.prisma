@@ -25,6 +25,7 @@ model User {
   phoneNumber             String?
   registrationDate        String?
   submittedBy             String?
+  gender                  String?
   isActive                Boolean?  @default(true)
   hasBankAccount          Boolean?  @default(false)
   questionnaires          Questionnaire[]
